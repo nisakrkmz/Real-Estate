@@ -1,0 +1,25 @@
+@{
+    ViewData["Title"] = "İlan Ekle";
+}
+
+<h1>Yeni İlan Ekle</h1>
+
+<form method="post" enctype="multipart/form-data">
+    <div class="mb-3">
+        <label for="Baslik" class="form-label">Başlık</label>
+        <input type="text" class="form-control" id="Baslik" name="Baslik" required>
+    </div>
+    <div class="mb-3">
+        <label for="Aciklama" class="form-label">Açıklama</label>
+        <textarea class="form-control" id="Aciklama" name="Aciklama" required></textarea>
+    </div>
+    <div class="mb-3">
+        <label for="Sehir" class="form-label">Şehir</label>
+        <input type="text" class="form-control" id="Sehir" name="Sehir" required>
+    </div>
+    <div class="mb-3">
+        <label for="ResimUrl" class="form-label">Resim URL</label>
+        <input type="text" class="form-control" id="ResimUrl" name="ResimUrl">
+    </div>
+    <button type="submit" class="btn btn-primary">Ekle</button>
+</form>

@@ -1,0 +1,46 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"] - Emlak Sitesi</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="/">Emlak Sitesi</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link @(ViewData["Title"]?.ToString() == "Ana Sayfa" ? "active" : "")" href="/">Ana Sayfa</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link @(ViewData["Title"]?.ToString() == "İlanlar" ? "active" : "")" href="/Ilan/Index">İlanlar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link @(ViewData["Title"]?.ToString() == "Hakkımızda" ? "active" : "")" href="/Home/About">Hakkımızda</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="content">
+            @RenderBody()  <!-- Her sayfanın içeriği burada gösterilecek -->
+        </div>
+    </div>
+    
+    <footer class="bg-light text-center py-3 mt-4">
+        <p>&copy; 2025 Emlak Sitesi - Tüm Hakları Saklıdır.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

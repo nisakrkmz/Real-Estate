@@ -1,0 +1,22 @@
+@model List<Ilan>
+
+<h2>Emlak İlanları</h2>
+<a href="/Ilan/Yeni">Yeni İlan Ekle</a>
+
+<table border="1">
+    <tr>
+        <th>Başlık</th>
+        <th>Şehir</th>
+        <th>Fiyat</th>
+        <th>Resim</th>
+    </tr>
+    @foreach (var ilan in Model)
+    {
+        <tr>
+            <td>@ilan.Baslik</td>
+            <td>@ilan.Sehir</td>
+            <td>@ilan.Fiyat</td>
+            <td><img src="@ilan.ResimUrl" width="100"/></td>
+        </tr>
+    }
+</table>

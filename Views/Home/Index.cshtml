@@ -1,0 +1,120 @@
+﻿@{
+    ViewData["Title"] = "Ana Sayfa";
+}
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .hero-section {
+            background-color: #3498db; /* Ana mavi renk */
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+            margin-bottom: 30px;
+        }
+
+        .hero-section h1 {
+            font-size: 3.5rem;
+            font-weight: bold;
+        }
+
+        .hero-section p {
+            font-size: 1.2rem;
+            margin-top: 15px;
+        }
+
+        .cta-button {
+            background-color: #e74c3c; /* Kırmızı buton */
+            color: white;
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            margin-top: 20px;
+        }
+
+        .cta-button:hover {
+            background-color: #c0392b;
+        }
+
+        .features-section {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            padding: 40px 20px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-card {
+            background-color: #ecf0f1;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-card h3 {
+            color: #3498db;
+        }
+
+        .feature-card p {
+            font-size: 1rem;
+            color: #555;
+        }
+
+        footer {
+            background-color: #34495e;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <h1>Hoşgeldiniz Emlakçı'ya</h1>
+        <p>Evinizi kolayca kiralayın veya satın! Hızlı, güvenli ve pratik.</p>
+        <a href="/Ilan/Yeni" class="cta-button">Yeni İlan Ver</a>
+    </div>
+
+    <!-- Features Section -->
+    <div class="features-section">
+        <div class="feature-card">
+            <h3>Hızlı İlan Yayını</h3>
+            <p>İlanınızı hızlıca yayınlayabilir, geniş bir kitleye ulaşabilirsiniz.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Geniş İlan Seçeneği</h3>
+            <p>Kiralık ve satılık birçok ilan seçeneği ile aradığınızı kolayca bulun.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Güvenli İletişim</h3>
+            <p>Satıcı ve alıcı arasındaki tüm iletişim güvenli ve şeffaf.</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Emlakçı - Tüm hakları saklıdır.</p>
+    </footer>
+
+</body>
+</html>
