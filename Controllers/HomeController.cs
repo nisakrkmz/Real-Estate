@@ -1,29 +1,25 @@
-using EmlakciSitesi.Models;
+using EmlakciSitesi.Data;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+namespace EmlakciSitesi.Controllers;
 
-namespace EmlakciSitesi.Controllers
+public class HomeController : Controller
 {
-    public class HomeController : Controller
+    private readonly AppDbContext _context;
+
+    public HomeController(AppDbContext context)
     {
-        private readonly AppDbContext _context;
+        _context = context;
+    }
 
-        public HomeController(AppDbContext context)
-        {
-            _context = context;
-        }
+    // Ana Sayfa için Index Metodu
+    public IActionResult Index()
+    {
+        return View();
+    }
 
-        // Ana Sayfa için Index Metodu
-        public async Task<IActionResult> Index()
-        {
-            var ilanlar = await _context.Ilanlar.ToListAsync();  // Veritabanından ilanları çekiyoruz
-            return View(ilanlar);  // Bu view'i ana sayfada kullanacağız
-        }
-
-        // Hakkımızda Sayfası
-        public IActionResult About()
-        {
-            return View();  // Hakkımızda sayfasına yönlendirme
-        }
+    // Hakkımızda Sayfası
+    public IActionResult About()
+    {
+        return View();  // Hakkımızda sayfasına yönlendirme
     }
 }

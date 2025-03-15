@@ -1,0 +1,44 @@
+@model IEnumerable<EmlakciSitesi.Models.Ilan>
+
+@{
+    ViewData["Title"] = "Admin Paneli";
+}
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="card shadow-lg p-4 mt-5">
+            <h2 class="text-center mb-4">Admin Paneline Hoşgeldiniz</h2>
+            <p class="text-center mb-4">Buradan çeşitli yönetim işlemleri yapabilirsiniz.</p>
+
+            <div class="list-group mb-4">
+                <a href="/Admin/Yeni" class="list-group-item list-group-item-action">
+                    <i class="bi bi-plus-circle"></i> İlan Ekle
+                </a>
+                
+                <!-- İlanları listele -->
+                @foreach (var ilan in Model)
+                {
+                    <a href="@Url.Action("Edit", "Admin", new { id = ilan.Id })" class="list-group-item list-group-item-action">
+                        İlanı Düzenle: @ilan.Baslik
+                    </a>
+                }
+                
+                <!-- Diğer Admin İşlemleri Eklenebilir -->
+            </div>
+
+            <!-- Admin Controller içinde çıkış işlemi -->
+            <div class="d-grid gap-2">
+                <a href="/Admin/Logout" class="btn btn-danger btn-lg">Çıkış Yap</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

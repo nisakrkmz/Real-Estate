@@ -201,3 +201,5 @@ C:\Users\Huawei\Desktop\emlak_site\EmlakciSitesi\obj\Debug\net9.0\refint\Emlakci
 C:\Users\Huawei\Desktop\emlak_site\EmlakciSitesi\obj\Debug\net9.0\EmlakciSitesi.pdb
 C:\Users\Huawei\Desktop\emlak_site\EmlakciSitesi\obj\Debug\net9.0\EmlakciSitesi.genruntimeconfig.cache
 C:\Users\Huawei\Desktop\emlak_site\EmlakciSitesi\obj\Debug\net9.0\ref\EmlakciSitesi.dll
+C:\Users\Huawei\Desktop\emlak_site\EmlakciSitesi\obj\Debug\net9.0\EmlakciSitesi.sourcelink.json
+C:\Users\Huawei\Desktop\emlak_site\EmlakciSitesi\bin\Debug\net9.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll

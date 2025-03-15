@@ -37,6 +37,7 @@
         }
 
         .cta-button {
+            display: inline-block;
             background-color: #e74c3c; /* Kırmızı buton */
             color: white;
             padding: 15px 30px;
@@ -78,11 +79,33 @@
             color: #555;
         }
 
+        .admin-panel {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .admin-button {
+            background-color: #2ecc71; /* Yeşil buton */
+            color: white;
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            margin-top: 20px;
+        }
+
+        .admin-button:hover {
+            background-color: #27ae60;
+        }
+
         footer {
             background-color: #34495e;
             color: white;
             text-align: center;
             padding: 20px;
+            margin-top: 30px;
         }
     </style>
 </head>
@@ -92,7 +115,6 @@
     <div class="hero-section">
         <h1>Hoşgeldiniz Emlakçı'ya</h1>
         <p>Evinizi kolayca kiralayın veya satın! Hızlı, güvenli ve pratik.</p>
-        <a href="/Ilan/Yeni" class="cta-button">Yeni İlan Ver</a>
     </div>
 
     <!-- Features Section -->
@@ -111,6 +133,14 @@
         </div>
     </div>
 
+    <!-- Admin Panel Butonu (Sadece Admin Giriş Yapınca Görünecek) -->
+    @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+    {
+        <div class="admin-panel">
+            <a href="/Admin/Index" class="admin-button">Admin Paneline Git</a>
+        </div>
+    }
+
     <!-- Footer -->
     <footer>
         <p>&copy; 2025 Emlakçı - Tüm hakları saklıdır.</p>
@@ -118,3 +148,4 @@
 
 </body>
 </html>
+

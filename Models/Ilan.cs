@@ -1,5 +1,5 @@
 using System.ComponentModel.DataAnnotations;
-
+namespace EmlakciSitesi.Models;
 public class Ilan
 {
     [Key]

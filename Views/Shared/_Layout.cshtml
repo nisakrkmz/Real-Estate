@@ -20,7 +20,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link @(ViewData["Title"]?.ToString() == "Ana Sayfa" ? "active" : "")" href="/">Ana Sayfa</a>
+                        <a class="nav-link @(ViewData["Title"]?.ToString() == "Ana Sayfa" ? "active" : "")" href="/Home/Index">Ana Sayfa</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link @(ViewData["Title"]?.ToString() == "İlanlar" ? "active" : "")" href="/Ilan/Index">İlanlar</a>
@@ -28,6 +28,20 @@
                     <li class="nav-item">
                         <a class="nav-link @(ViewData["Title"]?.ToString() == "Hakkımızda" ? "active" : "")" href="/Home/About">Hakkımızda</a>
                     </li>
+                    <!-- Admin Butonu (Sadece Admin Rolüne Sahip Kullanıcılara Gösterilecek) -->
+                    @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link @(ViewData["Title"]?.ToString() == "Admin Paneli" ? "active" : "")" href="/Admin/Index">Admin Paneli</a>
+                        </li>
+                    }
+                    <!-- Admin Giriş Butonu (Admin Girişi Yapılmamışsa Görünür) -->
+                    @if (!User.Identity.IsAuthenticated)
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Admin/Login">Admin Girişi</a>
+                        </li>
+                    }
                 </ul>
             </div>
         </nav>

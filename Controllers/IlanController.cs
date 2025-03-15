@@ -1,6 +1,8 @@
+using EmlakciSitesi.Data;
+using EmlakciSitesi.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-
+namespace EmlakciSitesi.Controllers;
 public class IlanController : Controller
 {
     private readonly AppDbContext _context;
@@ -31,6 +33,17 @@ public class IlanController : Controller
             return RedirectToAction(nameof(Index));  // İlan ekledikten sonra ana sayfaya yönlendir
         }
         return View(ilan);
+    }
+    public IActionResult Detay(int id)
+    {
+        var ilan = _context.Ilanlar.FirstOrDefault(i => i.Id == id);  // İlanı veritabanından alıyoruz
+
+        if (ilan == null)
+        {
+            return NotFound();  // İlan bulunamazsa hata döndürüyoruz
+        }
+
+        return View(ilan);  // Detaylar sayfasına ilanı gönderiyoruz
     }
 
 }

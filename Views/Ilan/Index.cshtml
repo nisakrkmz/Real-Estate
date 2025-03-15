@@ -1,22 +1,128 @@
-@model List<Ilan>
+@{
+    ViewData["Title"] = "İlanlar";
+}
 
-<h2>Emlak İlanları</h2>
-<a href="/Ilan/Yeni">Yeni İlan Ekle</a>
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
 
-<table border="1">
-    <tr>
-        <th>Başlık</th>
-        <th>Şehir</th>
-        <th>Fiyat</th>
-        <th>Resim</th>
-    </tr>
-    @foreach (var ilan in Model)
-    {
-        <tr>
-            <td>@ilan.Baslik</td>
-            <td>@ilan.Sehir</td>
-            <td>@ilan.Fiyat</td>
-            <td><img src="@ilan.ResimUrl" width="100"/></td>
-        </tr>
-    }
-</table>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .hero-section {
+            background-color: #3498db; /* Ana mavi renk */
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+            margin-bottom: 30px;
+        }
+
+        .hero-section h1 {
+            font-size: 3rem;
+            font-weight: bold;
+        }
+
+        .hero-section p {
+            font-size: 1.1rem;
+            margin-top: 15px;
+        }
+
+        .listing-section {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 40px 20px;
+            background-color: #ffffff;
+        }
+
+        .listing-card {
+            background-color: #ecf0f1;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .listing-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .listing-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .listing-card h3 {
+            margin-top: 15px;
+            color: #3498db;
+            font-size: 1.4rem;
+        }
+
+        .listing-card p {
+            font-size: 1rem;
+            color: #555;
+        }
+
+        .listing-card .btn-details {
+            background-color: #e74c3c;
+            color: white;
+            padding: 10px 20px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            margin-top: 15px;
+        }
+
+        .listing-card .btn-details:hover {
+            background-color: #c0392b;
+        }
+
+        footer {
+            background-color: #34495e;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <h1>İlanlar Sayfası</h1>
+        <p>Buradan ev ilanlarını görüntüleyebilir ve detaylarına ulaşabilirsiniz.</p>
+    </div>
+
+    <!-- Listing Section -->
+    <div class="listing-section">
+        @foreach (var ilan in Model)
+        {
+            <div class="listing-card">
+                <img src="@ilan.ResimUrl" alt="@ilan.Baslik">
+                <h3>@ilan.Baslik</h3>
+                <p>@ilan.Aciklama</p>
+                <a href="/Ilan/Detay/@ilan.Id" class="btn-details">Detaylar</a>
+            </div>
+        }
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Emlakçı - Tüm hakları saklıdır.</p>
+    </footer>
+
+</body>
+</html>
