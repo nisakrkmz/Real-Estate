@@ -73,7 +73,6 @@ namespace EmlakciSitesi.Controllers
             return View(ilanlar);  // İlanları View'a gönderin
         }
 
-        // İlan düzenleme sayfası için GET metodunu oluşturuyoruz.
         public IActionResult Edit(int id)
         {
             var ilan = _context.Ilanlar.FirstOrDefault(i => i.Id == id);  // İlanı id'ye göre bul
@@ -85,7 +84,6 @@ namespace EmlakciSitesi.Controllers
             return View(ilan);  // İlanı Edit sayfasına gönder
         }
 
-        // İlan düzenleme işlemi için POST metodunu oluşturuyoruz.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Edit(Ilan ilan)
@@ -98,6 +96,9 @@ namespace EmlakciSitesi.Controllers
             }
             return View(ilan);  // Eğer geçerli değilse, tekrar Edit sayfasına dön
         }
+
+
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Delete(int id)

@@ -4,6 +4,7 @@
 
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,7 +20,8 @@
         }
 
         .hero-section {
-            background-color: #3498db; /* Ana mavi renk */
+            background-color: #3498db;
+            /* Ana mavi renk */
             color: white;
             text-align: center;
             padding: 100px 20px;
@@ -38,7 +40,8 @@
 
         .cta-button {
             display: inline-block;
-            background-color: #e74c3c; /* Kırmızı buton */
+            background-color: #e74c3c;
+            /* Kırmızı buton */
             color: white;
             padding: 15px 30px;
             font-size: 1.1rem;
@@ -79,25 +82,23 @@
             color: #555;
         }
 
-        .admin-panel {
+        .contact-info {
             text-align: center;
             margin-top: 40px;
         }
 
-        .admin-button {
-            background-color: #2ecc71; /* Yeşil buton */
+        .contact-info a {
+            display: inline-block;
+            background-color: #3498db;
             color: white;
             padding: 15px 30px;
             font-size: 1.1rem;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
             text-decoration: none;
-            margin-top: 20px;
+            border-radius: 5px;
         }
 
-        .admin-button:hover {
-            background-color: #27ae60;
+        .contact-info a:hover {
+            background-color: #2980b9;
         }
 
         footer {
@@ -109,19 +110,21 @@
         }
     </style>
 </head>
+
 <body>
 
     <!-- Hero Section -->
     <div class="hero-section">
-        <h1>... Emlak Ofisine Hoşgeldiniz !</h1>
-        <p>Evinizi kolayca kiralayın veya satın! Hızlı, güvenli ve pratik.</p>
+        <h1>57 Emlak Ofisine Hoşgeldiniz!</h1>
+        <p>Ev kiralayın veya satın, arsanızı kolayca satın! Hızlı, güvenli ve pratik satış ve kiralama işlemleri ile
+            size kaliteli bir hizmet sunuyoruz.</p>
     </div>
 
     <!-- Features Section -->
     <div class="features-section">
         <div class="feature-card">
-            <h3>Hızlı İlan Yayını</h3>
-            <p>İlanınızı hızlıca yayınlayabilir, geniş bir kitleye ulaşabilirsiniz.</p>
+            <h3>İlan Yayını</h3>
+            <p>İlan vermek için bizimle iletişime geçebilirsiniz. İlanınızı hızlıca yayınlayalım.</p>
         </div>
         <div class="feature-card">
             <h3>Geniş İlan Seçeneği</h3>
@@ -133,19 +136,24 @@
         </div>
     </div>
 
-    <!-- Admin Panel Butonu (Sadece Admin Giriş Yapınca Görünecek) -->
-    @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
-    {
-        <div class="admin-panel">
-            <a href="/Admin/Index" class="admin-button">Admin Paneline Git</a>
-        </div>
-    }
+    <!-- Instagram'dan Videolar -->
+    <div class="contact-info">
+        <p><strong>İlanları Instagram'dan Ayrıntılı İzleyin:</strong></p>
+        <p>İlanlarımızın videolarını Instagram'dan takip edebilir, detayları daha iyi görebilirsiniz.</p>
+        <a href="https://www.instagram.com/sinop_57_emlak/" target="_blank">Instagram Sayfamız</a>
+    </div>
+
+    <!-- İletişim Butonu -->
+    <div class="contact-info">
+        <p><strong>İlan Vermek İçin İletişime Geçin:</strong></p>
+        <a href="tel:+905427817326">Bizi Arayın</a>
+    </div>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2025 Emlak - Tüm hakları saklıdır.</p>
+        <p>&copy; 2025 57 Emlak - Tüm hakları saklıdır.</p>
     </footer>
 
 </body>
-</html>
 
+</html>

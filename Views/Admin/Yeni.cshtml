@@ -17,9 +17,19 @@
         <label for="Sehir" class="form-label">Şehir</label>
         <input type="text" class="form-control" id="Sehir" name="Sehir" required>
     </div>
-    <div class="mb-3">
-        <label for="ResimUrl" class="form-label">Resim URL</label>
-        <input type="text" class="form-control" id="ResimUrl" name="ResimUrl">
-    </div>
+    <form method="post">
+        <div class="form-group">
+            <label for="ResimUrl">Resim URL</label>
+            <input type="text" class="form-control" id="ResimUrl" name="ResimUrl" value="@Model.ResimUrl" />
+        </div>
+        <button type="submit" class="btn btn-primary">Kaydet</button>
+    </form>
+
+    @if (!string.IsNullOrEmpty(Model.ResimUrl))
+    {
+        <div class="mt-3">
+            <img src="@Model.ResimUrl" alt="Resim" class="img-fluid" />
+        </div>
+    }
     <button type="submit" class="btn btn-primary">Ekle</button>
 </form>
