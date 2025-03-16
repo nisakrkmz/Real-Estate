@@ -52,6 +52,19 @@ namespace EmlakciSitesi.Controllers
         {
             return View();  // Yeni ilan ekleme formunu gösterecek view'ı döndürüyoruz
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Yeni(Ilan ilan)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Ilanlar.Add(ilan);  // Yeni ilanı ekle
+                _context.SaveChanges();  // Değişiklikleri kaydet
+                return RedirectToAction("Index");  // İlanlar listesini göster
+            }
+
+            return View(ilan);
+        }
 
 
         public IActionResult Index()
@@ -85,5 +98,21 @@ namespace EmlakciSitesi.Controllers
             }
             return View(ilan);  // Eğer geçerli değilse, tekrar Edit sayfasına dön
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Delete(int id)
+        {
+            var ilan = _context.Ilanlar.FirstOrDefault(i => i.Id == id);
+            if (ilan == null)
+            {
+                return NotFound();  // İlan bulunamazsa hata döndür
+            }
+
+            _context.Ilanlar.Remove(ilan);  // İlanı sil
+            _context.SaveChanges();  // Değişiklikleri kaydet
+            return RedirectToAction(nameof(Index));  // Admin paneline geri yönlendir
+        }
+
+
     }
 }
