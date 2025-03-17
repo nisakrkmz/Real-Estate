@@ -4,6 +4,7 @@
 
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,48 +17,152 @@
             color: #333;
             margin: 0;
             padding: 0;
+            line-height: 1.6;
         }
 
+        /* Ana Sayfa Geçiş ve Hedef Efektleri */
         .about-section {
-            background-color: #3498db;
-            color: white;
+            background-color: #85c1e9;
+            /* Daha pastel mavi */
+            color: #ffffff;
             text-align: center;
-            padding: 60px 20px;
+            padding: 80px 20px;
+            transition: transform 0.5s ease, background-color 0.3s ease;
+        }
+
+        .about-section:hover {
+            background-color: #74a7c1;
+            /* Hoverda biraz daha koyulaşan pastel mavi */
+            transform: translateY(-10px);
         }
 
         .about-section h1 {
-            font-size: 3.5rem;
+            font-size: 3rem;
+            /* Büyük başlık için daha uygun */
             font-weight: bold;
+            margin: 0;
+            letter-spacing: 1px;
+            color: #2c3e50;
+            /* Daha koyu, rahat okunabilir bir renk */
         }
 
         .about-section p {
-            font-size: 1.2rem;
-            margin-top: 15px;
+            font-size: 1.1rem;
+            margin-top: 20px;
+            line-height: 1.8;
+            color: #555555;
+            /* Daha yumuşak, pastel tonları */
         }
 
+        .about-section strong {
+            font-size: 1.1rem;
+            color: #555555;
+        }
+
+        /* Sosyal Medya ve İletişim Bölümü */
+        .cta-section {
+            background-color: #f0f4f7;
+            /* Çok açık pastel gri-beyaz */
+            text-align: center;
+            padding: 60px 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-section:hover {
+            background-color: #e8eff3;
+            /* Hoverda hafif pastel mavi-gri tonu */
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            color: #34495e;
+            /* Koyu mavi, uyumlu ve modern */
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            color: #777777;
+            /* Daha soft gri, göz yormayan bir ton */
+            margin: 20px 0;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #7ccfcc;
+            color: white;
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .cta-button:hover {
+            background-color: #1a697b;
+            transform: scale(1.05);
+        }
+
+
+        /* Footer */
         footer {
             background-color: #34495e;
             color: white;
             text-align: center;
             padding: 20px;
-            margin-top: 30px;
+            margin-top: 40px;
+            transition: background-color 0.3s ease;
+        }
+
+        footer:hover {
+            background-color: #2c3e50;
+            /* Hoverda koyu mavi */
+        }
+
+        /* Responsive Design */
+        .about-section h1 {
+            font-size: 2.2rem;
+        }
+
+        .about-section p {
+            font-size: 1rem;
+            /* Paragraf boyutunu daha küçük yap */
+        }
+
+        .cta-button {
+            padding: 12px 25px;
+            /* Buton boyutunu mobil için daha küçük yap */
+            font-size: 1rem;
+        }
         }
     </style>
 </head>
+
 <body>
 
     <!-- About Us Section -->
     <div class="about-section">
         <h1>Biz Kimiz?</h1>
-        <p>57 Emlak Ofisi, ev alım ve satım süreçlerini kolaylaştırarak müşterilerine güvenli ve hızlı bir deneyim sunmayı amaçlar.</p>
-        <p>Yılların deneyimi ve güvenilir ekibimizle, hem satıcıların hem de alıcıların kaliteli hizmet almasını sağlıyoruz.</p>
+        <p>57 Emlak Ofisi, ev alım ve satım süreçlerini kolaylaştırarak müşterilerine güvenli ve hızlı bir deneyim
+            sunmayı amaçlar.</p>
+        <p>Yılların deneyimi ve güvenilir ekibimizle, hem satıcıların hem de alıcıların kaliteli hizmet almasını
+            sağlıyoruz.</p>
         <p><strong>Bizimle çalışarak en iyi seçenekleri ve güvenli iletişimi deneyimleyin!</strong></p>
+    </div>
+
+    <!-- Call to Action Section -->
+    <div class="cta-section">
+        <h2>İletişime Geçin</h2>
+        <p>İlanlarınız hakkında daha fazla bilgi almak ya da bizimle çalışmaya başlamak için bizimle iletişime
+            geçebilirsiniz.</p>
+        <a href="tel:+905427817326" class="cta-button">Bizi Arayın</a>
     </div>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2025 57 Emlak - Tüm hakları saklıdır.</p>
+        <p>&copy; 2025 Sinop 57 Emlak Ofisi- Tüm hakları saklıdır.</p>
     </footer>
 
 </body>
+
 </html>

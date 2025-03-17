@@ -1,6 +1,6 @@
-using EmlakciSitesi.Data;
+using RealEstate.Data;
 using Microsoft.AspNetCore.Mvc;
-namespace EmlakciSitesi.Controllers;
+namespace RealEstate.Controllers;
 
 public class HomeController : Controller
 {

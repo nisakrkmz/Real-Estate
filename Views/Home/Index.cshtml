@@ -9,7 +9,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewData["Title"]</title>
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -17,143 +17,107 @@
             color: #333;
             margin: 0;
             padding: 0;
-        }
-
-        .hero-section {
-            background-color: #3498db;
-            /* Ana mavi renk */
-            color: white;
             text-align: center;
-            padding: 100px 20px;
-            margin-bottom: 30px;
         }
 
-        .hero-section h1 {
-            font-size: 3.5rem;
-            font-weight: bold;
+        nav {
+            background-color: #34495e;
+            padding: 10px;
         }
 
-        .hero-section p {
-            font-size: 1.2rem;
-            margin-top: 15px;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background-color: #e74c3c;
-            /* Kırmızı buton */
+        nav a {
             color: white;
-            padding: 15px 30px;
-            font-size: 1.1rem;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
             text-decoration: none;
-            margin-top: 20px;
+            margin: 0 15px;
+            font-size: 1.2rem;
         }
 
-        .cta-button:hover {
-            background-color: #c0392b;
+        .hero {
+            background-color: #64809a;
+            color: white;
+            padding: 50px 20px;
+            border-bottom-left-radius: 50% 20px;
+            border-bottom-right-radius: 50% 20px;
         }
 
-        .features-section {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            padding: 40px 20px;
-            background-color: #ffffff;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        .hero h1 {
+            font-size: 2.5rem;
         }
 
-        .feature-card {
-            background-color: #ecf0f1;
+        .features {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 30px;
+            flex-wrap: wrap;
+        }
+
+        .feature {
+            background: #ecf0f1;
             padding: 20px;
             border-radius: 8px;
-            text-align: center;
+            width: 250px;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
 
-        .feature-card h3 {
-            color: #3498db;
+        .social {
+            margin-top: 30px;
         }
 
-        .feature-card p {
-            font-size: 1rem;
-            color: #555;
+        .social a {
+            font-size: 2rem;
+            color: #e4405f;
+            transition: color 0.3s;
         }
 
-        .contact-info {
-            text-align: center;
-            margin-top: 40px;
-        }
-
-        .contact-info a {
-            display: inline-block;
-            background-color: #3498db;
-            color: white;
-            padding: 15px 30px;
-            font-size: 1.1rem;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-
-        .contact-info a:hover {
-            background-color: #2980b9;
+        .social a:hover {
+            color: #c13584;
         }
 
         footer {
             background-color: #34495e;
             color: white;
-            text-align: center;
-            padding: 20px;
-            margin-top: 30px;
+            padding: 10px;
+            margin-top: 20px;
         }
     </style>
 </head>
 
 <body>
+    <nav>
+        <a href="#home">Ana Sayfa</a>
+        <a href="#features">İlanlar</a>
+        <a href="#contact">İletişim</a>
+    </nav>
 
-    <!-- Hero Section -->
-    <div class="hero-section">
-        <h1>57 Emlak Ofisine Hoşgeldiniz!</h1>
-        <p>Ev kiralayın veya satın, arsanızı kolayca satın! Hızlı, güvenli ve pratik satış ve kiralama işlemleri ile
-            size kaliteli bir hizmet sunuyoruz.</p>
+    <div id="home" class="hero">
+        <h1>Sinop 57 Emlak Ofisine Hoşgeldiniz!</h1>
+        <p>Ev kiralayın veya satın, arsanızı kolayca satın!</p>
     </div>
 
-    <!-- Features Section -->
-    <div class="features-section">
-        <div class="feature-card">
+    <div id="features" class="features">
+        <div class="feature">
             <h3>İlan Yayını</h3>
-            <p>İlan vermek için bizimle iletişime geçebilirsiniz. İlanınızı hızlıca yayınlayalım.</p>
+            <p>İlanınızı hızlıca yayınlıyoruz.</p>
         </div>
-        <div class="feature-card">
-            <h3>Geniş İlan Seçeneği</h3>
-            <p>Kiralık ve satılık birçok ilan seçeneği ile aradığınızı kolayca bulun.</p>
+        <div class="feature">
+            <h3>Geniş Seçenek</h3>
+            <p>Kiralık ve satılık birçok ilan.</p>
         </div>
-        <div class="feature-card">
+        <div class="feature">
             <h3>Güvenli İletişim</h3>
-            <p>Satıcı ve alıcı arasındaki tüm iletişim güvenli ve şeffaf.</p>
+            <p>Alıcı ve satıcı arasında güvenli bağlantı.</p>
         </div>
     </div>
 
-    <!-- Instagram'dan Videolar -->
-    <div class="contact-info">
-        <p><strong>İlanları Instagram'dan Ayrıntılı İzleyin:</strong></p>
-        <p>İlanlarımızın videolarını Instagram'dan takip edebilir, detayları daha iyi görebilirsiniz.</p>
-        <a href="https://www.instagram.com/sinop_57_emlak/" target="_blank">Instagram Sayfamız</a>
+    <div id="contact" class="social">
+        <p>İlanları ayrıntılı şekilde görüntülemek için instagram sayfamızı ziyaret edebilirsiniz</p>
+        <a href="https://www.instagram.com/sinop_57_emlak/" target="_blank" title="Instagram"><i class="bi bi-instagram"></i></a>
     </div>
 
-    <!-- İletişim Butonu -->
-    <div class="contact-info">
-        <p><strong>İlan Vermek İçin İletişime Geçin:</strong></p>
-        <a href="tel:+905427817326">Bizi Arayın</a>
-    </div>
-
-    <!-- Footer -->
     <footer>
-        <p>&copy; 2025 57 Emlak - Tüm hakları saklıdır.</p>
+        <p>&copy; 2025 Sinop 57 Emlak Ofisi - Tüm hakları saklıdır.</p>
     </footer>
-
 </body>
 
 </html>

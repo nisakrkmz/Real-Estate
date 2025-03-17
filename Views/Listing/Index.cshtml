@@ -1,0 +1,133 @@
+@{
+    ViewData["Title"] = "İlanlar";
+}
+
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+            text-align: center;
+            padding: 70px 20px;
+            margin-bottom: 30px;
+        }
+
+        .hero-section h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+
+        .hero-section p {
+            font-size: 1.2rem;
+            margin-top: 10px;
+        }
+
+        .listing-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            padding: 40px 20px;
+            background-color: #ffffff;
+        }
+
+        .listing-card {
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #ddd;
+        }
+
+        .listing-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .listing-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .listing-card h3 {
+            margin-top: 15px;
+            color: #1e3c72;
+            font-size: 1.4rem;
+        }
+
+        .listing-card p {
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .btn-details {
+            display: inline-block;
+            background-color: #ff9800;
+            color: white;
+            padding: 10px 15px;
+            font-size: 1rem;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
+
+        .btn-details:hover {
+            background-color: #e68900;
+        }
+
+        footer {
+            background-color: #1e3c72;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <h1>İlanlar Sayfası</h1>
+        <p>En güncel emlak ilanlarını burada bulabilirsiniz.</p>
+    </div>
+
+    <!-- Listing Section -->
+    <div class="listing-section">
+        @foreach (var listing in Model)
+        {
+            <div class="listing-card">
+                <img src="@listing.ImageUrl" alt="@listing.Title">
+                <h3>@listing.Title</h3>
+                <p>@listing.Description</p>
+                <a href="/Listing/Detail/@listing.Id" class="btn-details">Detaylar</a>
+            </div>
+        }
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Sinop 57 Emlak Ofisi - Tüm hakları saklıdır.</p>
+    </footer>
+</body>
+
+</html>

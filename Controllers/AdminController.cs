@@ -1,12 +1,12 @@
 using Microsoft.AspNetCore.Mvc;
-using EmlakciSitesi.Models;
-using EmlakciSitesi.Data;
+using RealEstate.Models;
+using RealEstate.Data;
 using Microsoft.AspNetCore.Identity;
 using System.Linq;
 using System.Threading.Tasks;
 using System;
 
-namespace EmlakciSitesi.Controllers
+namespace RealEstate.Controllers
 {
     public class AdminController : Controller
     {
@@ -48,71 +48,62 @@ namespace EmlakciSitesi.Controllers
             await _signInManager.SignOutAsync();
             return RedirectToAction("Index", "Home");
         }
-        public IActionResult Yeni()
+        public IActionResult Create()
         {
-            return View();  // Yeni ilan ekleme formunu gösterecek view'ı döndürüyoruz
+            return View(new Listing()); // Model boş olsa bile bir nesne gönderiyoruz
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Yeni(Ilan ilan)
+        public IActionResult Create(Listing listing)
         {
             if (ModelState.IsValid)
             {
-                _context.Ilanlar.Add(ilan);  // Yeni ilanı ekle
+                _context.Listings.Add(listing);  // Yeni ilanı ekle
                 _context.SaveChanges();  // Değişiklikleri kaydet
                 return RedirectToAction("Index");  // İlanlar listesini göster
             }
 
-            return View(ilan);
+            return View(listing);
         }
-
-
         public IActionResult Index()
         {
-            var ilanlar = _context.Ilanlar.ToList();  // Veritabanından tüm ilanları alın
-            return View(ilanlar);  // İlanları View'a gönderin
+            var listings = _context.Listings.ToList();  // Veritabanından tüm ilanları alın
+            return View(listings);  // İlanları View'a gönderin
         }
 
         public IActionResult Edit(int id)
         {
-            var ilan = _context.Ilanlar.FirstOrDefault(i => i.Id == id);  // İlanı id'ye göre bul
-            if (ilan == null)
+            var listing = _context.Listings.FirstOrDefault(i => i.Id == id);  // İlanı id'ye göre bul
+            if (listing == null)
             {
                 return NotFound();  // Eğer ilan bulunmazsa hata döndür
             }
 
-            return View(ilan);  // İlanı Edit sayfasına gönder
+            return View(listing);  // İlanı Edit sayfasına gönder
         }
+
+
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(Ilan ilan)
+        public IActionResult Delete(int? id)
         {
-            if (ModelState.IsValid)  // Eğer gelen veri geçerliyse
+            if (id == null)
             {
-                _context.Update(ilan);  // Veritabanında güncelleme yap
-                _context.SaveChanges();  // Değişiklikleri kaydet
-                return RedirectToAction(nameof(Index));  // İlanlar listesine yönlendir
+                return BadRequest();  // Id parametresi yoksa hata dön
             }
-            return View(ilan);  // Eğer geçerli değilse, tekrar Edit sayfasına dön
-        }
 
-
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public IActionResult Delete(int id)
-        {
-            var ilan = _context.Ilanlar.FirstOrDefault(i => i.Id == id);
-            if (ilan == null)
+            var listing = _context.Listings.FirstOrDefault(i => i.Id == id);
+            if (listing == null)
             {
                 return NotFound();  // İlan bulunamazsa hata döndür
             }
 
-            _context.Ilanlar.Remove(ilan);  // İlanı sil
-            _context.SaveChanges();  // Değişiklikleri kaydet
-            return RedirectToAction(nameof(Index));  // Admin paneline geri yönlendir
+            _context.Listings.Remove(listing);
+            _context.SaveChanges();
+            return RedirectToAction(nameof(Index));
         }
+
 
 
     }

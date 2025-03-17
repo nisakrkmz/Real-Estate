@@ -1,40 +1,34 @@
-@model EmlakciSitesi.Models.Ilan
-
-@{
-    ViewData["Title"] = "İlan Düzenle";
-}
-
-<h2>@ViewData["Title"]</h2>
+@model RealEstate.Models.Listing 
 
 <form method="post">
     <div class="form-group">
-        <label for="Baslik">Başlık</label>
-        <input type="text" class="form-control" id="Baslik" name="Baslik" value="@Model.Baslik" required />
+        <label for="Title">Başlık</label>
+        <input type="text" class="form-control" id="Title" name="Title" value="@Model.Title" required />
     </div>
     <div class="form-group">
-        <label for="Aciklama">Açıklama</label>
-        <textarea class="form-control" id="Aciklama" name="Aciklama" required>@Model.Aciklama</textarea>
+        <label for="Description">Açıklama</label>
+        <textarea class="form-control" id="Description" name="Description" required>@Model.Description</textarea>
     </div>
     <div class="form-group">
-        <label for="Fiyat">Fiyat</label>
-        <input type="number" class="form-control" id="Fiyat" name="Fiyat" value="@Model.Fiyat" required />
+        <label for="Price">Fiyat</label>
+        <input type="number" class="form-control" id="Price" name="Price" value="@Model.Price" required />
     </div>
     <div class="form-group">
-        <label for="Sehir">Şehir</label>
-        <input type="text" class="form-control" id="Sehir" name="Sehir" value="@Model.Sehir" required />
+        <label for="District">İlçe</label>
+        <input type="text" class="form-control" id="District" name="District" value="@Model.District" required />
     </div>
 
     <div class="form-group">
-        <label for="ResimUrl">Resim URL</label>
+        <label for="ImageUrl"></label>
 
         <!-- Resim önizleme -->
-        @if (!string.IsNullOrEmpty(Model.ResimUrl))
+        @if (!string.IsNullOrEmpty(Model.ImageUrl))
         {
-            <img src="@Model.ResimUrl" alt="@Model.Baslik" class="img-fluid" style="max-width: 300px; height: auto;" />
+            <img src="@Model.ImageUrl" alt="@Model.Title" class="img-fluid" style="max-width: 300px; height: auto;" />
         }
 
         <!-- Resim URL input alanı -->
-        <input type="text" class="form-control" id="ResimUrl" name="ResimUrl" value="@Model.ResimUrl" />
+        <input type="text" class="form-control" id="ImageUrl" name="ImageUrl" value="@Model.ImageUrl" />
     </div>
 
     <!-- Gizli ID alanı, güncelleme işlemi için gerekli -->
@@ -42,9 +36,5 @@
 
     <button type="submit" class="btn btn-primary">Kaydet</button>
 </form>
-@{
-    // Fiyat değerinin doğru şekilde gelmediğini anlamak için
-    var fiyat = Model.Fiyat;
-    <text>Fiyat: @fiyat</text>  <!-- Burada fiyatı görmek için ekleyebilirsiniz -->
-}
+
 

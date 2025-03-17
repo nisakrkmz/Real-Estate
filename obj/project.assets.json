@@ -4195,11 +4195,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Huawei\\Desktop\\emlak_site\\EmlakciSitesi\\EmlakciSitesi.csproj",
-      "projectName": "EmlakciSitesi",
-      "projectPath": "C:\\Users\\Huawei\\Desktop\\emlak_site\\EmlakciSitesi\\EmlakciSitesi.csproj",
+      "projectUniqueName": "C:\\Users\\Huawei\\Desktop\\RealEstate\\RealEstate.csproj",
+      "projectName": "RealEstate",
+      "projectPath": "C:\\Users\\Huawei\\Desktop\\RealEstate\\RealEstate.csproj",
       "packagesPath": "C:\\Users\\Huawei\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Huawei\\Desktop\\emlak_site\\EmlakciSitesi\\obj\\",
+      "outputPath": "C:\\Users\\Huawei\\Desktop\\RealEstate\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

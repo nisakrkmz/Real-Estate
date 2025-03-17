@@ -1,4 +1,4 @@
-@model EmlakciSitesi.Models.Ilan
+@model RealEstate.Models.Listing
 
 @{
     ViewData["Title"] = "İlanı Sil";
@@ -8,7 +8,8 @@
 
 <p>Bu ilanı silmek istediğinizden emin misiniz?</p>
 
-<form method="post" action="@Url.Action("DeleteConfirmed", "Admin", new { id = Model.Id })">
-    <button type="submit" class="btn btn-danger">Evet, Sil</button>
-    <a href="@Url.Action("Index", "Admin")" class="btn btn-secondary">İptal</a>
+<form method="post" action="@Url.Action("Delete", "Admin", new { id = Model.Id })">
+    @Html.AntiForgeryToken()
+    <button type="submit" class="btn btn-danger">Sil</button>
 </form>
+
